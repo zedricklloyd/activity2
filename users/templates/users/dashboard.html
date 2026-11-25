@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{% static 'users/css/dashboard.css' %}">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <header class="dashboard-header">
+            <h2>Dashboard</h2>
+            <a href="{% url 'users:index' %}">Logout</a>
+        </header>
+
+        <main class="dashboard-content">
+
+            <h1>Welcome, {{ request.user.first_name }}! 👋</h1>
+
+            <p>We're glad to have you here.</p>
+
+            <div class="dashboard-card">
+                <h3>Your Account</h3>
+
+                <p><strong>Name:</strong> {{ request.user.get_full_name }}</p>
+
+                <p><strong>Email:</strong> {{ request.user.email }}</p>
+            </div>
+
+        </main>
+
+    </div>
+
+</body>
+</html>
